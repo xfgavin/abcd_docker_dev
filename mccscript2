@@ -1,0 +1,61 @@
+#!/bin/bash
+rm -f mccExcludedFiles.log
+#rm -rf /usr/pubsw/packages/MMPS/MMPS_247/matlab
+#mv /usr/pubsw/packages/MMPS/MMPS_247 /usr/pubsw/packages/MMPS/MMPS_$MMPSVER
+#cd /
+#tar xf /root/mmps_$MMPSVER.tar.gz
+#cd /root
+#sed -e "s/mghread(fn)/mghread_xf(fn)/g" -i /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/external/matlab/Projects/MorphometryToolbox/1_10/MGH/read_mgh.m
+#[ ! -f /root/mghread_xf.m ] && cp /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/external_mods/Projects/mghread.m /root/mghread_xf.m
+#cp /root/matlab/MMPS_nonsvn/ABCD_Summarize_rsBOLD_Exams.m /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/ABCD/
+#cp /root/matlab/MMPS_nonsvn/abcd_check_eprime* /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/abcd/
+#cp /root/matlab/MMPS_nonsvn/abcd_pc_Siemens.m /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/abcd/
+
+###############################
+#scripts have utf-8 characters
+###############################
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/eeglab5.01b/functions/sdfread.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/eeglab5.01b/functions/spectopo.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/eeglab_functions/sdfread.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/eeglab_functions/spectopo.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/private/filtfilt.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/multivariate/external/glmnet/cvglmnet.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/preproc/private/filtfilt.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/specest/private/filtfilt.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/multivariate/preprocessors/ft_mv_csp.m
+#/usr/pubsw/packages/MMPS/external/external.2013.11.08/matlab/fieldtrip-20110912/external/spm8/spm_eeg_inv_vbecd_disp.m
+
+
+mcc -m mmps_engine.m -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/ABCD \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/abcd \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_analysis \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/MMIL_Analysis \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/BOLD_A* \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/DTI_Analysis \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/ExploreDTI \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/epi_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/bold_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/dti_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/fsurf_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/jsonlab/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mdh_io \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/rsi_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/abcd_wmbc/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_args/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_convert/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_tools \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_utils \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/MMIL_Longitudinal/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/MMIL_S* \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/MMIL_T* \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/MMIL_U* \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/BOLD_Stream/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/DTI_Atlas/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/dti_utils/*.m  \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/mmil_classify/*.m  \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/DTI_Stream/*.m \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/utils/*.m \
+                     -a /usr/pubsw/packages/spm/spm5b/spm_dicom_headers.m \
+                     -a /usr/pubsw/packages/spm/spm5b/spm_dicom_dict.mat \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/ctx_utils/*.m  \
+                     -a /usr/pubsw/packages/MMPS/MMPS_$MMPSVER/matlab/timesurfer/functions/ts_freq_filt.m
