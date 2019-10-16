@@ -1,20 +1,16 @@
+#!/usr/bin/env bash
+MMPSVER=$1
+[ ${#MMPSVER} -eq 0 ] && echo "MMPS Version is invalid" && exit -1
+GITROOT=$2
+[ ${#GITROOT} -eq 0 ] && echo "GITROOT is invalid" && exit -1
+[ ! -d $GITROOT ] && echo "GITROOT does not exist" && exit -1
+
 docker run -it --rm \
            -v /usr/pubsw/packages/MMPS/atlases:/usr/pubsw/packages/MMPS/atlases \
            -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS/external:/usr/pubsw/packages/MMPS/external \
-           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS/MMPS_251:/usr/pubsw/packages/MMPS/MMPS_251 \
+           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS/MMPS_$MMPSVER:/usr/pubsw/packages/MMPS/MMPS_$MMPSVER \
            -v /usr/pubsw/packages/MMPS/startup_MMPS.m:/usr/pubsw/packages/MMPS/startup_MMPS.m \
            -v /usr/pubsw/packages/matlab/R2014b:/usr/pubsw/packages/matlab/R2014b \
            -v /usr/pubsw/packages/spm/spm5b:/usr/pubsw/packages/spm/spm5b \
-           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b:/mnt \
-       mmps:251_r2014b /bin/tcsh
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn:/root/matlab/MMPS_nonsvn \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/New_input.m:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/fieldtrip-20110912/external/afni/New_input.m \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/CheckPrefix.m:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/fieldtrip-20110912/external/afni/CheckPrefix.m \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/MATVEC_to_WARP.m:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/fieldtrip-20110912/external/afni/MATVEC_to_WARP.m \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/fieldtrip-20110912:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/fieldtrip-20110912 \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/NQ_Create_Report.m:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/Projects/MorphometryToolbox/4_Segmentation/wholeSeg/nqreport/NQ_Create_Report.m \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/nft_forward_problem_solution.m:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/NFT-2.3/nft_forward_problem_solution.m \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/fieldtrip-20110912:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/fieldtrip-20110912 \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/eeglab5.01b:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/eeglab5.01b \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/eeglab_functions:/usr/pubsw/packages/MMPS/MMPS_251/external/matlab/eeglab_functions \
-#           -v /space/syn09/1/data/MMILDB/xfgavin/docker/MMPS_Compiler_R2014b/MMPS_nonsvn/read_mgh.m:/usr/pubsw/packages/MMPS/MMPS_$MMPSVER/external/matlab/Projects/MorphometryToolbox/1_10/MGH/read_mgh.m \
+           -v $GITROOT:/mnt \
+       abcd:dev /bin/tcsh
